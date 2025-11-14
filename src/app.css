@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+@layer base {
+    body {
+        @apply bg-[#101922];
+        @apply text-slate-800 dark:text-white;
+    }
+}
+
+span{
+    color: #2B8CED;
+}
