@@ -1,38 +1,55 @@
-# sv
+# 🌤️ weahter-svelte-ai — Clima Inteligente con IA (SvelteKit + Gemini)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+weahter-svelte-ai es una **aplicación web de clima inteligente** desarrollada con **SvelteKit**, que permite buscar cualquier ciudad y obtener información meteorológica detallada junto con **recomendaciones personalizadas generadas por IA**.
 
-## Creating a project
+La aplicación combina datos reales del clima con un modelo de IA (Gemini 2.5 Flash) para sugerir ropa, advertencias y consejos basados en la temperatura y la localidad seleccionada.
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project in the current directory
-npx sv create
+## ✨ Características
 
-# create a new project in my-app
-npx sv create my-app
+✔ **Búsqueda de ciudades en tiempo real**  
+✔ **Debounce en el input** para evitar llamadas innecesarias  
+✔ **Recomendaciones generadas por IA (Gemini)** basadas en temperatura y ciudad  
+✔ **UI moderna** construida con Tailwind + componentes reutilizables  
+✔ Código organizado, escalable y responsive  
+
+---
+
+## 🧠 ¿Cómo funciona?
+
+1. El usuario escribe una ciudad.  
+2. Se obtiene información meteorológica (temperatura, humedad, timezone, etc.) usando la API de OpenWeatherMap.  
+3. Se envían estos datos a un endpoint interno del proyecto.  
+4. El backend consulta a Gemini con un **prompt estructurado**.  
+5. La IA responde con:  
+   - recomendación general  
+   - descripción del clima  
+   - sugerencias de ropa  
+6. La UI muestra una tarjeta combinando clima + recomendaciones de IA.  
+
+---
+
+## 🏗 Tecnologías utilizadas
+
+- **SvelteKit**
+- **TypeScript**
+- **TailwindCSS**
+- **OpenWeatherMap API**
+- **Google Gemini API**
+
+---
+
+## 📦 Instalación + Configuración
+
+```bash
+git clone https://github.com/elisbanpaccoaccha/weahter-svelte-ai.git
+cd weahter-svelte-ai
+pnpm install
+
 ```
+Crear un archivo .env en la raíz del proyecto con:
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+API_KEY="TU_API_DE_OPENWEATHERMAP"
+API_GEMINI="TU_API_KEY_DE_GEMINI"
